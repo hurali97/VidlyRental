@@ -1,0 +1,73 @@
+﻿
+@using WebGrease
+@model IEnumerable<Vidly.Models.Movie>
+
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+
+ 
+
+
+ 
+
+<table id="movies" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Movie</th>
+        <th>Genre</th>
+        
+    </tr>
+    </thead>
+    
+   
+    <tbody>
+       @foreach (var movie in Model)
+    {
+        <tr>
+
+            <td>@movie.Name</td>
+
+            <td>@movie.Genre.Name</td>
+            
+
+    </tr>   } 
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        @*  var table = $("#movies").DataTable({
+            ajax: {
+                url: "/API/Movies",
+                dataSrc: ""
+            },
+            columns: [
+                {
+                    data: "name",
+                    render: function(data, type, movie) {
+                        return "<a href='/Movies/edit" + movie.id + "'>" + movie.name + "</a>";
+                    }
+                },
+                {
+
+                    data:"genre.genre"
+                },
+
+            {
+            data: "id",
+            render: function(data) {
+                return "<button class='btn btn-link js-delete' data-movie-id=" + data + ">Delete</button>";
+            }
+        }
+        ]
+        });*@
+
+
+ 
+    </script>
+}
